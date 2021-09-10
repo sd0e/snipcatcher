@@ -1,5 +1,5 @@
 # SnipCatcher
-SnipCatcher is a program which enables the autosaving of images in Windows Snip and Sketch. It is made in Node.js and has been compiled into a standalone executable file using [nexe](https://github.com/nexe/nexe).
+SnipCatcher is a program which enables the autosaving of images in Windows Snip and Sketch. It is made in Node.js [MIT License](https://raw.githubusercontent.com/nodejs/node/master/LICENSE) and has been compiled into a standalone executable file using [nexe](https://github.com/nexe/nexe).
 
 ## Installation and Use
 ### Installation
