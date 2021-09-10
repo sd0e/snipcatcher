@@ -11,7 +11,6 @@ const path = require('path');
 const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 const sizeOf = require('image-size');
-const chokidar = require('chokidar');
 const chalk = require('chalk');
 
 
@@ -28,6 +27,8 @@ if (fs.existsSync(staticDesktop + '.snipcatcher-redir.txt')) {
 }
 
 console.log(`Using SnipCatcher as`, chalk.green(`${username}\n`));
+
+console.log('View dependencies at https://raw.githubusercontent.com/sebastiandoe5/snipcatcher/main/README.md\n');
 
 console.log(`Your screenshots will be saved to ${chalk.green(desktopPath)}\n`);
 
