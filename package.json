@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.2",
+    "fswin": "^3.21.905",
+    "hidefile": "^3.0.0",
+    "image-size": "^1.0.0",
+    "p-iteration": "^1.1.8",
+    "prompt": "^1.2.0"
+  }
+}
