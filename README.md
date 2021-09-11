@@ -3,7 +3,7 @@ SnipCatcher is a program which enables the autosaving of images in Windows Snip 
 
 ## Installation and Use
 ### Installation
-SnipCatcher can be installed by downloading the executable file from [the latest release](https://github.com/sebastiandoe5/snipcatcher/releases).
+SnipCatcher can be installed by downloading the executable file from the latest release. [Download Here.](https://github.com/sebastiandoe5/snipcatcher/releases/tag/v1.1)
 
 Alternatively, you can use the Node.js version with the latest version of [Node.js](https://nodejs.org/en/) installed by cloning this repository and running `npm install` then `node snipcatcher` in the directory of the clone.
 
