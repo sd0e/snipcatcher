@@ -20,6 +20,14 @@ console.log(`Creators: ${creators.join(', ')}\n`);
 const username = os.userInfo().username;
 const staticDesktop = `C:\\Users\\${username}\\Documents\\`;
 var desktopPath = `C:\\Users\\${username}\\Desktop\\`;
+const usualDefaultLocation = `C:\\Users\\${username}\\AppData\\Local\\Packages\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TempState\\ScreenClip\\`;
+let isDefaultPath;
+
+if (fs.existsSync(usualDefaultLocation)) {
+	isDefaultPath = true;
+} else {
+	isDefaultPath = false;
+}
 
 if (fs.existsSync(staticDesktop + '.snipcatcher-redir.txt')) {
 	console.log(`Redirect file detected in ${chalk.green('Documents')}\n`);
@@ -54,7 +62,7 @@ twirlTimer;
 const createJSONIfNotExist = () => {
 	const pathToJSON = desktopPath + 'snipcatcher.txt';
 	if (!fs.existsSync(pathToJSON)) {
-		fs.writeFileSync(pathToJSON, '\n');
+		fs.writeFileSync(pathToJSON, '');
 	}
 }
 
@@ -180,14 +188,7 @@ const alertWatching = () => {
 	global.timeSinceLastAlert = new Date().getTime();
 }
 
-exec('dir ScreenClip /s', { cwd: `C:/Users/${username}/AppData/Local` }).then(res => {
-	clearInterval(twirlTimer);
-
-	setTimeout(alertWatching, 500);
-
-	console.log(chalk.green('\n\nDirectory found\n'));
-	const directory = res.stdout.split('Directory of ')[1].split('\\TempState')[0] + '\\TempState\\ScreenClip\\';
-
+const directoryFound = directory => {
 	const filesInDirectory = fs.readdirSync(directory);
 
 	let numberOfImages = 0;
@@ -254,17 +255,38 @@ exec('dir ScreenClip /s', { cwd: `C:/Users/${username}/AppData/Local` }).then(re
 			}
 		}
 	});
-}).catch(err => {
-	// If folder doesn't exist
+}
 
+if (isDefaultPath) {
 	clearInterval(twirlTimer);
-	
-	if (err.stderr.includes('File Not Found')) {
-		console.log(chalk.red('\n\nNo screenshots exist in the directory. Take a screenshot and run the program again.'));
-		console.log('Press Ctrl+C to exit.');
-		process.stdin.resume();
-	}
-});
+
+	setTimeout(alertWatching, 500);
+
+	console.log(chalk.green('\n\nDirectory found\n'));
+
+	directoryFound(usualDefaultLocation);
+} else {
+	exec('dir ScreenClip /s', { cwd: `C:/Users/${username}/AppData/Local` }).then(res => {
+		clearInterval(twirlTimer);
+
+		setTimeout(alertWatching, 500);
+
+		console.log(chalk.green('\n\nDirectory found\n'));
+		const directory = res.stdout.split('Directory of ')[1].split('\\TempState')[0] + '\\TempState\\ScreenClip\\';
+
+		directoryFound(directory);
+	}).catch(err => {
+		// If folder doesn't exist
+
+		clearInterval(twirlTimer);
+		
+		if (err.stderr.includes('File Not Found')) {
+			console.log(chalk.red('\n\nNo screenshots exist in the directory. Take a screenshot and run the program again.'));
+			console.log('Press Ctrl+C to exit.');
+			process.stdin.resume();
+		}
+	});
+}
 
 process.on('SIGINT', () => process.exit());
 
