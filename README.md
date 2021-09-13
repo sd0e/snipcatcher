@@ -1,15 +1,11 @@
 # SnipCatcher
-SnipCatcher is a program which enables the autosaving of images in Windows Snip and Sketch. It is made in Node.js ([MIT License](https://raw.githubusercontent.com/nodejs/node/master/LICENSE)) and has been compiled into a standalone executable file using [nexe](https://github.com/nexe/nexe).
+SnipCatcher is a program which enables the autosaving of images in Windows Snip and Sketch. It is made in Node.js ([MIT License](https://raw.githubusercontent.com/nodejs/node/master/LICENSE)).
 
 It is a better option than third-party screenshotting applications for devices with limited access, such as those on administrated networks.
 
-[Download](https://github.com/sebastiandoe5/snipcatcher/releases/tag/v1.1)
-
 ## Installation and Use
 ### Installation
-SnipCatcher can be installed by downloading the executable file from the latest release. [Download Here.](https://github.com/sebastiandoe5/snipcatcher/releases/tag/v1.1)
-
-Alternatively, you can use the Node.js version with the latest version of [Node.js](https://nodejs.org/en/) installed by cloning this repository and running `npm install` then `node snipcatcher` in the directory of the clone.
+You can use the Node.js version with the latest version of [Node.js](https://nodejs.org/en/) installed by cloning this repository and running `npm install` then `node snipcatcher` in the directory of the clone.
 
 ### Use
 Upon running the program, it will show information about the location of the program, and then it will locate the cache folder of Snip and Sketch. Once the directory is located, the highest resolution version of each screenshot is copied to a folder on the desktop.
