@@ -346,7 +346,7 @@ readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
 process.stdin.on('keypress', (str, key) => {
-	if (key && key.name.toLowerCase() === 'x' && key.ctrl) {
+	if (key.name === 'x' && key.ctrl) {
 		setNewLocation();
 	}
 });
