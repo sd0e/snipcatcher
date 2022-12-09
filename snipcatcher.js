@@ -36,7 +36,7 @@ if (fs.existsSync(staticDesktop + '.snipcatcher-redir.txt')) {
 
 console.log(`Using SnipCatcher as`, chalk.green(`${username}\n`));
 
-console.log('View dependencies at https://raw.githubusercontent.com/sebastiandoe5/snipcatcher/main/README.md\n');
+console.log('View dependencies at https://raw.githubusercontent.com/sd0e/snipcatcher/main/README.md\n');
 
 console.log(`Your screenshots will be saved to ${chalk.green(desktopPath)}\n`);
 
