@@ -3,6 +3,8 @@ SnipCatcher is a program which enables the autosaving of images in Windows Snip 
 
 It is a better option than third-party screenshotting applications for devices with limited access, such as those on administrated networks.
 
+> Please note that screenshots are now saved automatically to the Pictures folder on newer installations of Windows, so this program is only necessary for computers with an older operating system.
+
 ## Installation and Use
 ### Installation
 You can use the Node.js version with the latest version of [Node.js](https://nodejs.org/en/) installed by cloning this repository and running `npm install` then `node snipcatcher` in the directory of the clone.
